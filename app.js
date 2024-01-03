@@ -107,3 +107,10 @@ const selectAnswer = (e) => {
     nextButton.style.display = 'block'
 }
 
+const showScore = () => {
+    resetState();
+    questionElement.innerHTML = `Вы набрали ${score} из ${questions.length}!`;
+    nextButton.innerHTML = 'Играть Снова';
+    nextButton.style.display = 'block'
+}
+
