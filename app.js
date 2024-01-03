@@ -55,3 +55,27 @@ const startQuiz = () => {
     nextButton.innerHTML = 'Следующее';
     showQuestion();
 }
+
+const showQuestion = () => {
+    //сбросить предыд. вопрос и ответ на него
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    //номер вопроса и текущий вопрос с текстом вопроса
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    //текущие ответы
+    //на эране в кнопке отобразится вопрос с номером вопросом и ответ на него
+
+    currentQuestion.answers.forEach((answer) => {
+        const button = document.createElement('button');
+        button.innerHTML = answer.text;
+        button.classList.add('btn');
+        answerButtons.append(button);
+
+        if (answer.correct) {
+            button.dataset.correct =  answer.correct
+        }
+        button.addEventListener('click', selectAnswer)
+    })
+}
