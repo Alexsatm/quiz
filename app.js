@@ -86,3 +86,24 @@ const resetState = () => {
         answerButtons.removeChild(answerButtons.firstChild)
     }
 }
+
+const selectAnswer = (e) => {
+    const selectBtn = e.target;
+    const isCorrect = selectBtn.dataset.correct === 'true';
+    if(isCorrect) {
+        selectBtn.classList.add('correct');
+        score++
+    } else {
+        selectBtn.classList.add('incorrect');
+    }
+
+    Array.from(answerButtons.children).forEach((button) => {
+        if(button.dataset.correct === 'true') {
+            button.classList.add('correct')
+        }
+        button.disabled = true;
+    });
+
+    nextButton.style.display = 'block'
+}
+
