@@ -114,3 +114,12 @@ const showScore = () => {
     nextButton.style.display = 'block'
 }
 
+const handleNextButton = () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion()
+    } else {
+        showScore()
+    }
+}
+
