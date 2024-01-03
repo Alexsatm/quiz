@@ -48,3 +48,10 @@ const nextButton = document.getElementById('next-btn')
 
 let currentQuestionIndex = 0;
 let score = 0;
+
+const startQuiz = () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = 'Следующее';
+    showQuestion();
+}
